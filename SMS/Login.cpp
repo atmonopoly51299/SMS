@@ -15,7 +15,20 @@
 	in>>type;
 	in.close();
 }*/
-int Login::changePassword(char filename[]) {
+
+void Login::changePassword(char filename[]) {
+	cout << "Change password"<<endl;
+	cout << "Please, retype your current password: ";
+	char oldP[200];
+	do {
+		cin.get(oldP, 200, '\n');
+		cin.ignore(200, '\n');
+		if (match(password, oldP)) break;
+		else cout << "Wrong password, please retype: ";
+	} while (1);
+	changePasswordInit(filename);
+}
+int Login::changePasswordInit(char filename[]) {
 	ifstream in;
 	in.open(filename);
 	if (!in.is_open()) {
@@ -23,7 +36,7 @@ int Login::changePassword(char filename[]) {
 		return 0;
 	}
 	//store file content from starting to before stt into a char[]
-	char *c=new char[50], *pW=new char[100000], tmp;
+	char *c=new char[50], *pW=new char[100000], tmp[50];
 	int id = -1;
 	for (int i = 0; i < stt; ++i) {
 		in.get(c, 50, '\n');
@@ -39,17 +52,28 @@ int Login::changePassword(char filename[]) {
 	do {
 		cin.get(newP, 200, '\n');
 		cin.ignore(200, '\n');//watch this!!!
-		cout << newP << endl;
-	} while (strlen(newP) < 6);//limit to 6 chars
-
+		//cout << newP << endl;//for checking only
+		if (strlen(newP) < 6) {
+			cout << "Password must be at least 6 characters!" << endl<<"Retype: ";
+		} 
+		else if(match(password, newP)) {
+			cout << "New password must differ from your old password" << endl << "Retype: ";
+		}
+		else break;
+	} while (1);//limit to 6 chars
+	cout << "Password changed successfully!" << endl;
 	//append new password to position at stt
-	for (int i = 0; i < strlen(newP); ++i)pW[++id] = newP[i];
-
+	delete[]password;
+	password = new char[50];
+	for (int i = 0; i < strlen(newP); ++i) {
+		pW[++id] = newP[i];
+		password[i] = newP[i];
+	}
 	//ignore char: 1
-	in >> tmp;
-	in.ignore(5, '\n');
+	//in.get(c, 50, '\n');
+	in.ignore(50, '\n');
 	pW[++id] = '\n';
-
+	password[strlen(newP)] = '\0';
 	//add the rest of the stream into the char[]
 	delete[]c;
 	c = new char[50];
@@ -62,12 +86,13 @@ int Login::changePassword(char filename[]) {
 		pW[++id] = '\n';
 		in.ignore(5, '\n');
 	}
-	pW[++id] = '\0';
+	pW[id] = '\0';
+	in.clear();
 	in.close();
 
 	//time to overwrite the file with char[]
 	fstream out;
-	out.open(filename);
+	out.open(filename,ios::out);
 	if (!out.is_open()) {
 		cout << "Sorry, our service encountered an error, please retry!" << endl;
 		return 0;
@@ -181,6 +206,7 @@ void Login::login() {
 	//if(type==1)getType(Const::typeSL);
 }
 Login::Login() {
+	password = new char[50];
 	stt = -1;
 	type = 1;
 }
