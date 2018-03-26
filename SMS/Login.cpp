@@ -1,4 +1,20 @@
 #include"Login.h"
+
+void Login::getType(char filename[]) {
+	ifstream in;
+	in.open(filename);
+	if (!in.is_open()) {
+		cout << "Sorry, our service encountered an error, please retry!" << endl;
+	}
+	char c, pW[50];
+	int id = -1;
+	for (int i = 0; i < stt; ++i) {
+		//ignore stt-1 rows of record
+		while (in >> c && c != '\n');
+	}
+	in>>type;
+	in.close();
+}
 fstream & Login::GotoLine(fstream & file, int num)
 {
 	file.seekg(ios::beg);
@@ -89,7 +105,7 @@ int Login::foundUsername(char filename[]) {
 	in.close();
 	return 2;
 }
-bool Login::login(char filenameUsername[], char filenamePassword[]) {
+void Login::login(char filenameUsername[], char filenamePassword[], char filenameType[]) {
 	do {
 		cout << "Username: ";
 		cin.get(username, 50, '\n');
@@ -103,5 +119,5 @@ bool Login::login(char filenameUsername[], char filenamePassword[]) {
 		cout << "Please change your password" << endl;
 		changePassword(filenamePassword);
 	}
-	return true;
+	getType(filenameType);
 }
