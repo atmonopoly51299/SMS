@@ -6,6 +6,6 @@ int viewInfo(char filename[], int stt) {
 		cout << "Sorry, our service encountered an error, please retry!" << endl;
 		return 0;
 	}
-	GotoLine(out, stt);
+
 
 }
