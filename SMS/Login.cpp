@@ -107,13 +107,15 @@ int Login::passWord(char filename[]) {
 		in.ignore(50, '\n');
 	}
 	in.get(pW, 50, '\n');
-	pW[strlen(pW)] = '\0';
+	//pW[strlen(pW)] = '\0';
 	if(match(password,pW)){
 		in.close();
 		return 1;
 	}	
 	delete[]pW;
 	cout << "Wrong password, please check your typing" << endl;
+	type = 1;
+	stt = -1;
 	in.close();
 	return 2;
 }
@@ -130,7 +132,7 @@ int Login::foundUsername(char filename[]) {
 		in.get(sN,50, '\n');
 		in.ignore(1, '\n');
 		if (sN[0] == '-')++type;
-		sN[strlen(sN)] = '\0';
+		//sN[strlen(sN)] = '\0';
 		++stt;
 		//sN loaded, now check if this sN matches the inputted one:
 		if (match(username, sN)) {
@@ -142,7 +144,10 @@ int Login::foundUsername(char filename[]) {
 		id = -1;
 	}
 	cout << "User non-existed, please check your typing" << endl;
+
 	type=1;
+	stt = -1;
+
 	in.close();
 	return 2;
 }
