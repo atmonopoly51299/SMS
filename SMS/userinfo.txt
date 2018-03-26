@@ -1,0 +1,3 @@
+username;surname;name;date of birth;gender;entrance date;term;degree;program;reading;major;department;status;******;idcardnumber;nationality;ethnic group;permanent address;current address;email;phone;agribank id;reference;unionists
+pttu;pham thi;tu;17/11/1988;0;03/08/2010;#;Bachelor in Management;APCS;#;#;Student Affairs;working; ;250556655;Vietnam;Kinh;26,Hang Be,Ha Noi;118, Nguyen Khuyen, P.10, Q.5, Tp.HCM;studentaffairs@apcs.vn;0165879456;10610685214;pttu@gmail.com
+pttu;pham thi;tu;17/11/1988;0;03/08/2010;#;Bachelor in Management;APCS;#;#;Student Affairs;working; ;250556655;Vietnam;Kinh;26,Hang Be,Ha Noi;118, Nguyen Khuyen, P.10, Q.5, Tp.HCM;studentaffairs@apcs.vn;0165879456;10610685214;pttu@gmail.com
