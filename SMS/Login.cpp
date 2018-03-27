@@ -36,7 +36,7 @@ int Login::changePasswordInit(char filename[]) {
 		return 0;
 	}
 	//store file content from starting to before stt into a char[]
-	char *c=new char[50], *pW=new char[100000], tmp[50];
+	char *c=new char[50], *pW=new char[100000];
 	int id = -1;
 	for (int i = 0; i < stt; ++i) {
 		in.get(c, 50, '\n');
