@@ -1,14 +1,14 @@
 #include"Login.h"
+#include"ViewInfo.h"
 int main() {
 	cout << "welcome" << endl;
 	Login login;
 	login.login();
 	login.changePassword(Const::passwordStudent);
-	switch (login.type)
-	{
-	case 0://student,...to show proper menu
-	default:
-		break;
-	}
+	
+	cout << "View Info" << endl;
+	ViewInfo vi;
+	vi.viewInfo(Const::infoStudent, 1);
+
 	return 0;
 }

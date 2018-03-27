@@ -1,5 +1,5 @@
-#ifndef _LOGIN_H_
-#define _LOGIN_H_
+#ifndef _VIEWINFO_H_
+#define _VIEWINFO_H_
 #include<iostream>
 #include<fstream>
 #include<string.h>
@@ -7,8 +7,11 @@
 using namespace std;
 class ViewInfo {
 private:
+	int headerCount;
 public:
+	~ViewInfo();
 	void viewInfo(char filename[], int stt);
-
+	
+	char ** header,**info;
 };
 #endif

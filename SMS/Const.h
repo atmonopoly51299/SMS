@@ -7,6 +7,7 @@ public:
 	static char passwordStudent[];
 	static char passwordSL[];
 	static char typeSL[];
-	//char usernameStudent[] = "username_student.txt";
+	static char infoStudent[];
+	static char infoSL[];
 };
 #endif
