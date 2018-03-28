@@ -60,7 +60,8 @@ int Login::changePasswordInit(char filename[]) {
 			cout << "New password must differ from your old password" << endl << "Retype: ";
 		}
 		else break;
-	} while (1);//limit to 6 chars
+	} while (1);
+
 	cout << "Password changed successfully!" << endl;
 	//append new password to position at stt
 	delete[]password;
@@ -76,16 +77,18 @@ int Login::changePasswordInit(char filename[]) {
 	password[strlen(newP)] = '\0';
 	//add the rest of the stream into the char[]
 	delete[]c;
-	c = new char[50];
+	c = new char[100000];
+	in.get(c, 50, '\0');
 
-	while (!in.eof()) {
+	/*while (!in.eof()) {
 		in.get(c, 50, '\n');
 		for (int i = 0; i < strlen(c); ++i) {
 			pW[++id] = c[i];
 		}
 		pW[++id] = '\n';
 		in.ignore(5, '\n');
-	}
+	}*/
+
 	pW[id] = '\0';
 	in.clear();
 	in.close();
@@ -125,7 +128,7 @@ int Login::passWord(char filename[]) {
 		return 0;
 	}
 
-	char c[50], *pW=new char[50];
+	char *pW=new char[50];
 	for (int i = 0; i < stt; ++i) {
 		//ignore stt-1 rows of record
 		//in.get(c, 50, '\n');
@@ -201,7 +204,7 @@ void Login::login() {
 	cout << "Login successfully!" << endl;
 	if (strlen(password)==1 &&password[0]==defaultPass) {
 		cout << "Please change your password" << endl;
-		changePassword(filenamePassword);
+		changePasswordInit(filenamePassword);
 	}
 	//if(type==1)getType(Const::typeSL);
 }

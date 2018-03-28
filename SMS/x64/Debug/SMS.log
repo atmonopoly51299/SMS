@@ -1,0 +1,19 @@
+﻿Build started 3/28/2018 12:41:43 PM.
+     1>Project "D:\36_thu\SMS\SMS\SMS.vcxproj" on node 2 (Build target(s)).
+       Project file contains ToolsVersion="15.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt Source.cpp
+         Source.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\36_thu\SMS\x64\Debug\SMS.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"D:\36_thu\SMS\x64\Debug\SMS.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\36_thu\SMS\x64\Debug\SMS.lib" /MACHINE:X64 x64\Debug\Const.obj
+         x64\Debug\Login.obj
+         x64\Debug\Password.obj
+         x64\Debug\Source.obj
+         x64\Debug\Student.obj
+         x64\Debug\ViewInfo.obj
+         SMS.vcxproj -> D:\36_thu\SMS\x64\Debug\SMS.exe
+     1>Done Building Project "D:\36_thu\SMS\SMS\SMS.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.59

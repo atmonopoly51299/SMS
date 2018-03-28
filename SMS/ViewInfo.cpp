@@ -10,7 +10,7 @@ ViewInfo::~ViewInfo() {
 
 void ViewInfo::viewInfo(char filename[], int stt) {
 	ifstream in;
-	in.open(filename);
+	in.open(filename);      
 	if (!in.is_open()) {
 		cout << "Sorry, our service encountered an error, please retry!" << endl;
 		return;

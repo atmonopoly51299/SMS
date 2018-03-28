@@ -9,5 +9,6 @@ public:
 	static char typeSL[];
 	static char infoStudent[];
 	static char infoSL[];
+	
 };
 #endif

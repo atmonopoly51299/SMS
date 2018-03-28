@@ -4,11 +4,18 @@ int main() {
 	cout << "welcome" << endl;
 	Login login;
 	login.login();
-	login.changePassword(Const::passwordStudent);
+	cout<<login.type<<endl;
+
+	if(login.type)login.changePassword(Const::passwordSL);
+	else login.changePassword(Const::passwordStudent);
 	
+	cout<<endl;
 	cout << "View Info" << endl;
 	ViewInfo vi;
-	vi.viewInfo(Const::infoStudent, 1);
+
+	if(login.type)vi.viewInfo(Const::infoStudent, login.stt);
+	else vi.viewInfo(Const::infoSL, login.stt);
+	
 
 	return 0;
 }

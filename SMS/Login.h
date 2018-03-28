@@ -10,7 +10,7 @@ class Login {
 private:
 	char username[50];
 	char *password;
-	const char defaultPass = '1';
+	static const char defaultPass = '1';
 	int foundUsername(char filename[]);
 	int passWord(char filename[]);
 	bool match(char inputted[], char sN[]);
