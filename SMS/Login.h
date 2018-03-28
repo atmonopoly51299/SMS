@@ -5,6 +5,7 @@
 #include<string>
 #include"Utils.h"
 #include"Const.h"
+#include"ViewInfo.h"
 using namespace std;
 class Login {
 private:
@@ -16,12 +17,15 @@ private:
 	bool match(char inputted[], char sN[]);
 	//bool matchPassword(char inputted[], char pN[], int id);
 	int changePasswordInit(char filename[]);
+	void deLogin();
 	//void getType(char filename[]);
 public:
 	int stt;//so thu tu cua hoc sinh trong file
 	int type;//student/lecturer/staff
 	Login();
+	~Login();
 	void login();
+	void logout();
 	void changePassword(char filename[]);
 };
 #endif

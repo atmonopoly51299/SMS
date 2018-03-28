@@ -11,6 +11,7 @@ private:
 public:
 	~ViewInfo();
 	void viewInfo(char filename[], int stt);
+	void deViewInfo();
 	
 	char ** header,**info;
 };

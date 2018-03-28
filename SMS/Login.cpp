@@ -16,6 +16,12 @@
 	in.close();
 }*/
 
+void Login::logout() {
+	deLogin();
+	//ViewInfo::deViewInfo();
+	Login();
+}
+
 void Login::changePassword(char filename[]) {
 	cout << "Change password"<<endl;
 	cout << "Please, retype your current password: ";
@@ -77,8 +83,8 @@ int Login::changePasswordInit(char filename[]) {
 	password[strlen(newP)] = '\0';
 	//add the rest of the stream into the char[]
 	delete[]c;
-	c = new char[100000];
-	in.get(c, 50, '\0');
+	c = new char[500000];
+	in.get(c, 500000, '\0');
 
 	/*while (!in.eof()) {
 		in.get(c, 50, '\n');
@@ -88,8 +94,13 @@ int Login::changePasswordInit(char filename[]) {
 		pW[++id] = '\n';
 		in.ignore(5, '\n');
 	}*/
-
-	pW[id] = '\0';
+	cout << strlen(c) << endl;
+	for (int i = 0; i < strlen(c); ++i) {
+		pW[++id] = c[i];
+	}
+	pW[++id] = '\0';
+	//c[strlen(c)] = '\0';
+	//strcat_s(pW, strlen(c), c);
 	in.clear();
 	in.close();
 
@@ -208,8 +219,17 @@ void Login::login() {
 	}
 	//if(type==1)getType(Const::typeSL);
 }
+void Login::deLogin() {
+
+	delete[]password;
+	stt = -1;
+	type = 1;
+}
 Login::Login() {
 	password = new char[50];
 	stt = -1;
 	type = 1;
+}
+Login::~Login() {
+	deLogin();
 }

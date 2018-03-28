@@ -1,6 +1,7 @@
 #include"Login.h"
 #include"ViewInfo.h"
 int main() {
+	//if ever logout->login is the only option
 	cout << "welcome" << endl;
 	Login login;
 	login.login();
