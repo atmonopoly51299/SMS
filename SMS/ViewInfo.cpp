@@ -50,8 +50,9 @@ void ViewInfo::viewInfo(char filename[], int stt) {
 		else {
 			in.get(info[i], 50, '\n');
 			in.ignore(2, '\n');
-		}
-		if(header[i][0]!='*')cout << header[i] << ": " << info[i] << endl;
+		}		
+		if(info[i][0]=='#')continue;
+		else if(header[i][0]!='*')cout << header[i] << ": " << info[i] << endl;
 		else cout << header[i] <<endl;
 	}
 }

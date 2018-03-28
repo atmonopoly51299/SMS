@@ -13,8 +13,8 @@ int main() {
 	cout << "View Info" << endl;
 	ViewInfo vi;
 
-	if(login.type)vi.viewInfo(Const::infoStudent, login.stt);
-	else vi.viewInfo(Const::infoSL, login.stt);
+	if(login.type)vi.viewInfo(Const::infoSL, login.stt);
+	else vi.viewInfo(Const::infoStudent, login.stt);
 	
 
 	return 0;
